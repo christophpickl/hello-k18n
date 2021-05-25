@@ -14,6 +14,8 @@ Sample project to play around with kubernetes.
 
 ## Minor
 
+* [ ] introduce kotlin script
+* [ ] share build/plugin configuration via buildSrc
 * [ ] introduce kodein
 * [ ] introduce testng integration tests with wiremock
 * [ ] commons lib for ktor (router discovery)

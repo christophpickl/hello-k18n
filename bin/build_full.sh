@@ -1,9 +1,24 @@
 #!/bin/bash
 
+PROJECT=$1
+PROJECT_ID=""
+case $PROJECT in
+  users)
+    PROJECT_ID="users-service"
+    ;;
+  books)
+    PROJECT_ID="books-service"
+    ;;
+  *)
+    echo "Supported arg: { useres | books }"
+    exit 1
+    ;;
+esac
+
 echo "Building shadow jar ..."
-./gradlew users-service:service-impl:shadowJar || exit
+./gradlew ${PROJECT_ID}:service-impl:shadowJar || exit
 
 echo "Building docker image ..."
-docker build -t users-service:latest users-service/service-impl || exit
+docker build -t ${PROJECT_ID}:latest ${PROJECT_ID}/service-impl || exit
 
-echo "Build successful ✅"
+echo "Building '${PROJECT_ID}' successful ✅"
