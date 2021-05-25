@@ -1,5 +1,6 @@
-rootProject.name = "hello-k18n"
+rootProject.name = "hello-k8s"
 
 include(
-    "service1-api",
+    "users-service",
+    "users-service:service-impl",
 )
