@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: users-service-pod
+spec:
+  containers:
+    - name: users-service-container
+      # as deployed to docker hub
+      image: christophpickl/users-service:latest
+      imagePullPolicy: Always
+      ports:
+        - containerPort: 6379
