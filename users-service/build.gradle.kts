@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version Versions.kotlin
+    kotlin("jvm") version Versions.Kotlin
 }
 
 subprojects {
@@ -15,9 +15,10 @@ subprojects {
     tasks {
         withType<KotlinCompile> {
             kotlinOptions {
-                jvmTarget = Versions.jvm
+                jvmTarget = Versions.Jvm
                 freeCompilerArgs = listOf(
                     "-Xjsr305=strict",
+//                    "-Xopt-in=kotlin.RequiresOptIn",
                 )
             }
         }
