@@ -6,17 +6,20 @@ plugins {
 
 dependencies {
     implementation(project(":users-service:sdk-model"))
+    implementation(project(":commons:common-server"))
     implementation(Dependencies.Ktor.Core)
     implementation(Dependencies.Ktor.Netty) {
         excludeStdlibJdk7()
     }
+    implementation(Dependencies.Arrow.Core)
     implementation(Dependencies.Ktor.Serialization)
+    implementation(Dependencies.Kodein.Core)
+    implementation(Dependencies.Kodein.Ktor)
     implementation(Dependencies.Klogging)
     implementation(Dependencies.LogBack)
 
     testImplementation(project(":users-service:sdk-client"))
     testImplementation(project(":commons:common-server-test"))
-    testImplementation(Dependencies.Coroutines)
 }
 
 tasks.withType<ShadowJar> {

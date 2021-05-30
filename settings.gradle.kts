@@ -1,6 +1,7 @@
 rootProject.name = "hello-k8s"
 
 include(
+    "build-tools",
     "commons",
     "commons:common-test",
     "commons:common-server",

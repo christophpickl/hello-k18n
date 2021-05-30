@@ -1,0 +1,67 @@
+# ... as seen in: https://spring.io/guides/gs/spring-boot-kubernetes/
+
+# kubectl create deployment bootdemo --image=christophpickl/users-service:latest --dry-run=client -o=yaml > bootdemo.yaml
+# echo --- >> bootdemo.yaml
+# kubectl create service clusterip bootdemo --tcp=8080:80 --dry-run=client -o=yaml >> bootdemo.yaml
+# kubectl apply -f bootdemo.yaml
+# kubectl port-forward service/bootdemo 8000:8082
+# curl http://localhost:8000/booksForUser
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: bootdemo
+  name: bootdemo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bootdemo
+  strategy: { }
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: bootdemo
+    spec:
+      containers:
+        - image: christophpickl/users-service:latest
+          name: users-service
+          resources: { }
+          env:
+            - name: K8S_SERVER_PORT
+              value: "81"
+        - image: christophpickl/books-service:latest
+          name: books-service
+          resources: { }
+          env:
+            - name: K8S_SERVER_PORT
+              value: "82"
+            - name: K8S_USERS_SERVICE_BASE_URL
+              value: http://bootdemo:8081
+status: { }
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: bootdemo
+  name: bootdemo
+spec:
+  ports:
+    - name: 8081-81
+      port: 8081
+      protocol: TCP
+      targetPort: 81
+    - name: 8082-82
+      port: 8082
+      protocol: TCP
+      targetPort: 82
+  selector:
+    app: bootdemo
+  type: ClusterIP
+status:
+  loadBalancer: { }

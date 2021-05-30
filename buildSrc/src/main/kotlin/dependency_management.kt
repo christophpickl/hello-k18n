@@ -9,7 +9,9 @@ object Versions {
     const val Kotlin = "1.5.10"
     const val Ktor = "1.5.4"
     const val Klogging = "2.0.6"
-    const val Kodein = "7.3.1"
+
+    //    const val Kodein = "7.3.1" // ever since version 7, deployment on repo is broken
+    const val Kodein = "6.5.5"
     const val Logback = "1.2.3"
     const val Serialization = "1.2.1"
     const val TestNG = "7.4.0"

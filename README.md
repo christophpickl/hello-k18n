@@ -7,32 +7,27 @@ Sample project to play around with kubernetes.
 * [x] setup basic ktor services
 * [x] deploy docker images to docker hub
 * [x] run sample project manually in kubernetes
-* [ ] run services via k8s manifest file
-* [ ] add service inter-communication
-
-## Major
-
-* [ ] commons lib for ktor (router discovery)
-* [ ] introduce arrow
+* [x] run services via k8s manifest file
+* [ ] service inter-communication
+* [ ] persistence (exposed, volume mapping)
 
 ## k8s features:
 
-* [ ] helm charts (package management)
+* [ ] helm charts (package management; when configuration k8s gets messy)
+* [ ] istio/nginx (access from outside + caching)
 * [ ] prometheus (monitoring)
 * [ ] store configuration in encrypted files
-* [ ] fluentd (logging)
-* [ ] istio (caching)
-* [ ] load balancing
-* [ ] facade with nginx
 * [ ] security, auth; centralized
-* [ ] persistence (exposed, volume mapping)
+* [ ] load balancing
+* [ ] fluentd (logging)
 
 ## Minor
 
-* [ ] introduce kotlin script
-* [ ] share build/plugin configuration via buildSrc
+* [x] introduce kotlin script
+* [x] share build/plugin configuration via buildSrc
+* [x] introduce testng integration tests
 * [ ] introduce kodein
-* [ ] introduce testng integration tests with wiremock
+* [ ] introduce integration tests with wiremock
 
 # Commands Help
 

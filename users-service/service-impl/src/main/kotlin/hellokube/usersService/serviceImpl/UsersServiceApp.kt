@@ -1,5 +1,6 @@
 package hellokube.usersService.serviceImpl
 
+import hellokube.commons.server.EnvironmentReader
 import hellokube.usersService.sdkModel.UserDto
 import io.ktor.application.Application
 import io.ktor.application.call
@@ -24,7 +25,7 @@ class UsersServiceApp(
     companion object {
         @JvmStatic
         fun main(args: Array<String>) {
-            UsersServiceApp(port = 80).start()
+            UsersServiceApp(port = Konfiguration.serverPort).start()
         }
     }
 
@@ -70,4 +71,8 @@ fun Application.configureRouting() {
             call.respond(user)
         }
     }
+}
+
+object Konfiguration {
+    val serverPort = EnvironmentReader.read("K8S_SERVER_PORT", "80").toInt()
 }

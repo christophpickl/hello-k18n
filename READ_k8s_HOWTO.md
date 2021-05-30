@@ -11,6 +11,7 @@
 * Look around:
     * `kubectl cluster-info`
     * `kubectl get nodes` (should show minikube)
+    * `minikube dashboard` (opens browser UI)
 
 ## Setup local docker registry (for k8s)
 
@@ -63,6 +64,8 @@
 
 * Start up (like docker compose): `kubectl apply -f k8s-manifest.yaml`
 * Verify: `kubectl get pods`, Troubleshoot: `kubectl describe pod $POD`
+* Logs: `kubectl logs hello-k8s-pod books-service-container`
+* Interact: `kubectl exec -it hello-k8s-pod --container books-service-container -- /bin/bash`
 
 ## Nginx demo
 
@@ -82,3 +85,4 @@
 * Delete them: `kubectl delete deployments <DEPLOYMENT_NAME>`
 * List pods: `kubectl get pods`
 * Delete pods: `kubectl delete pod $POD` or forcefully with `--grace-period=0`
+* Shutdown minikube: `minikube stop`
