@@ -19,11 +19,12 @@ dependencies {
     implementation(Dependencies.LogBack)
 
     testImplementation(project(":commons:common-server-test"))
+    testImplementation(project(":users-service:sdk-model", "testsConfig"))
 }
 
 tasks.withType<ShadowJar> {
     archiveBaseName.set("books-service")
-    archiveClassifier.set("")
+    archiveClassifier.set("fatJar")
     archiveVersion.set("")
     manifest {
         attributes(mapOf("Main-Class" to "hellokube.booksService.serviceImpl.BooksServiceApp"))

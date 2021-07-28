@@ -24,7 +24,7 @@ dependencies {
 
 tasks.withType<ShadowJar> {
     archiveBaseName.set("users-service")
-    archiveClassifier.set("")
+    archiveClassifier.set("fatJar")
     archiveVersion.set("")
     manifest {
         attributes(mapOf("Main-Class" to "hellokube.usersService.serviceImpl.UsersServiceApp"))

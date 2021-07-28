@@ -19,6 +19,7 @@ object Versions {
     object Plugins {
         const val ShadowJar = "7.0.0"
         const val Serialization = "1.5.0"
+        const val Versions = "0.39.0"
     }
 }
 

@@ -1,4 +1,3 @@
-
 dependencies {
     api(Dependencies.Ktor.Core)
     api(Dependencies.Ktor.Netty) {
